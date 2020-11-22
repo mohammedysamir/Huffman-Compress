@@ -20,8 +20,10 @@ public class VLC {
         content = ReadFromFile(input);
         // calculate probability
         CalcProb(content);
-        // call tree function to assign binary values
-        BuiltTree();
+        // call tree function to assign binary values   
+        if(tags.size()==1 &&tags.get(0).Symbol=="") 
+            BuiltTree();
+        else tags.get(0).BinaryValue="0"; //one repeated char
         // read from file to compress
         for (int i = 0; i < content.length(); i++) {
             String ch = Character.toString(content.charAt(i));
